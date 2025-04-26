@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Banking MCQ Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .question {
+      margin-bottom: 20px;
+    }
+    .question h4 {
+      margin-bottom: 5px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+    #result {
+      margin-top: 30px;
+      font-size: 20px;
+      font-weight: bold;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <h1>E-Banking 50 MCQ Test</h1>
+  <form id="quizForm"></form>
+  <button onclick="submitQuiz()">Submit</button>
+  <div id="result"></div>
+
+  <script>
+    const questions = [
+      {q: "What are the primary functions of banks?", options: ["Only deposit-taking", "Only lending money", "Financial intermediation, deposit-taking, and lending", "Only providing insurance services"], answer: 2},
+      {q: "Which of the following best defines e-banking?", options: ["Traditional banking services provided through brick-and-mortar branches", "Banking services delivered electronically over the internet", "Banking services exclusively for corporate clients", "Banking services provided through telecommunication networks only"], answer: 1},
+      {q: "What is a key advantage of e-banking over traditional banking?", options: ["Limited accessibility for customers", "Higher transaction costs", "24/7 availability and convenience", "Enhanced personal interaction with bank staff"], answer: 2},
+      {q: "Which of the following is a limitation of e-banking?", options: ["Increased security measures", "Limited service offerings", "Reduced transaction speed", "Higher operational costs"], answer: 1},
+      {q: "Which organization plays a significant role in facilitating digital payments in India?", options: ["International Monetary Fund (IMF)", "World Bank", "National Payments Corporation of India (NPCI)", "Reserve Bank of India (RBI)"], answer: 2},
+      {q: "What are some recommended precautions for safe digital transactions?", options: ["Sharing sensitive information openly", "Using public Wi-Fi for transactions", "Regularly updating security software", "Clicking on suspicious links received via email"], answer: 2},
+      {q: "Which of the following is NOT a mode of digital payment?", options: ["Debit cards", "Cheques", "Internet banking", "Mobile banking"], answer: 1},
+      {q: "What does UPI stand for in the context of digital payments?", options: ["Universal Payment Integration", "Unique Payment Identification", "Ultra-fast Payment Integration", "Unified Payments Interface"], answer: 3},
+      {q: "Which of the following is NOT a type of bank?", options: ["Commercial bank", "Central bank", "Investment bank", "Retail bank"], answer: 2},
+      {q: "What is a potential disadvantage of e-banking?", options: ["Vulnerability to cyber threats", "Limited transaction options", "Higher interest rates on loans", "Lower account fees"], answer: 0},
+      {q: "What is a recommended 'Do' for ensuring safe digital payments?", options: ["Sharing passwords with trusted friends", "Disabling security features on electronic devices", "Using public computers for online transactions", "Verifying the authenticity of websites before making payments"], answer: 3},
+      {q: "Which of the following is an example of card-based digital payment?", options: ["Mobile banking", "UPI transactions", "Credit card payments", "Internet banking transfers"], answer: 2},
+      {q: "What is the primary purpose of the Unified Payments Interface (UPI)?", options: ["Facilitating international money transfers", "Streamlining government tax collections", "Enabling real-time peer-to-peer transactions", "Providing insurance services to customers"], answer: 2},
+      {q: "What are the primary functions of traditional banks?", options: ["Selling goods and services", "Managing real estate properties", "Providing financial services", "Offering legal consultancy"], answer: 2},
+      {q: "Which of the following is a characteristic feature of e-banking?", options: ["Reliance on physical branches for all transactions", "Limited accessibility outside of business hours", "Higher fees compared to traditional banking", "Utilization of electronic channels for service delivery"], answer: 3},
+      {q: "What aspect of e-banking contributes to environmental sustainability?", options: ["Higher paper consumption", "Increased reliance on fossil fuels", "Reduction in physical infrastructure", "Greater energy consumption"], answer: 2},
+      {q: "Which organization regulates digital payment systems in India?", options: ["World Bank", "Reserve Bank of India (RBI)", "International Monetary Fund (IMF)", "Securities and Exchange Board of India (SEBI)"], answer: 1},
+      {q: "What is a recommended 'Don't' for safe digital payments?", options: ["Sharing passwords with strangers", "Providing personal information on unsecured websites", "Using strong and unique passwords", "Regularly monitoring transaction history"], answer: 1},
+      {q: "How does UPI revolutionize digital payments?", options: ["By increasing transaction costs", "By offering only limited payment options", "By providing a single platform for various bank accounts", "By imposing stringent transaction limits"], answer: 2},
+      {q: "Which of the following is NOT a typical e-banking service?", options: ["Online account opening", "ATM withdrawals", "Mobile check deposit", "Electronic bill payment"], answer: 1},
+      {q: "What precaution should users take while using public Wi-Fi for digital transactions?", options: ["Disable multi-factor authentication", "Share sensitive information openly", "Use a virtual private network (VPN)", "Ignore security warnings"], answer: 2},
+      {q: "How does UPI simplify the digital payment process?", options: ["By allowing users to link multiple bank accounts to a single app", "By requiring users to open separate accounts for each bank", "By limiting the types of transactions that can be performed", "By increasing transaction fees for users"], answer: 0},
+      {q: "How does e-banking enhance efficiency for banks?", options: ["By increasing paperwork and manual processes", "By reducing the need for customer support", "By limiting accessibility to banking services", "By decreasing transaction speed"], answer: 1},
+      {q: "Which mode of digital payment requires users to link their bank account directly?", options: ["UPI transactions", "Debit card payments", "Credit card payments", "Mobile banking transfers"], answer: 0},
+      {q: "Which organization oversees digital payment systems in India?", options: ["National Payments Corporation of India (NPCI)", "World Trade Organization (WTO)", "Indian Banks' Association (IBA)", "Securities and Exchange Board of India (SEBI)"], answer: 0},
+      {q: "What precaution should users take to enhance the security of digital payments?", options: ["Share sensitive information over unsecured networks", "Use simple and easily guessable passwords", "Ignore software updates on devices used for transactions", "Regularly monitor account activity for unauthorized transactions"], answer: 3},
+      {q: "What is the primary purpose of financial intermediation in banking?", options: ["Managing customer inquiries", "Facilitating transactions between banks", "Mobilizing funds from savers to borrowers", "Providing investment advice to clients"], answer: 2},
+      {q: "What precaution should users take to safeguard their digital transactions?", options: ["Use secure and encrypted payment gateways", "Share account passwords with trusted family members", "Conduct transactions on public Wi-Fi networks", "Ignore security updates on devices used for transactions"], answer: 0},
+      {q: "What risk is associated with e-banking?", options: ["Limited access to financial services", "Increased convenience for customers", "Exposure to cyber threats", "Enhanced transparency in transactions"], answer: 2},
+      {q: "HDFC bank is an example of?", options: ["Foreign Bank", "Public Bank", "Private Bank", "None of these"], answer: 2},
+      {q: "Rate of interest is increased by RBI at times of:", options: ["Sharing sensitive information openly", "Higher inflation", "From the pressure of commercial banks", "All of the above"], answer: 1},
+      {q: "This is not a function of the RBI?", options: ["Printing of currency", "Controller of credit", "Issuance of coins", "Custodian of foreign currency"], answer: 2},
+      {q: "Can an illiterate person be issued a Debit card?", options: ["No", "Yes", "Ultra-fast Payment Integration", "Unified Payments Interface"], answer: 1},
+      {q: "What is the validity period of a cheque?", options: ["4 months from date of issue", "3 months from date of issue", "1 month from date of issue", "Unlimited"], answer: 1},
+      {q: "Which type of deposits earns higher interest rate?", options: ["Current account", "Savings Account", "Fixed Deposits", "None of above"], answer: 2},
+      {q: "Who is Bank Mitra?", options: ["Banking Correspondents engaged by Banks", "Valuable customer of Bank", "Security guard in a branch", "None of above"], answer: 0},
+      {q: "What kinds of services are available free in ‘Basic Savings Bank Deposit Account’?", options: ["Receipt / credit of money through NEFT / RTGS", "No annual maintenance charges on ATM-cum-Debit card", "4 withdrawals in a month (including ATM withdrawals)", "All of above"], answer: 3},
+      {q: "Fixed Deposit can", options: ["Not be withdrawn before maturity", "Paid only after maturity", "Withdrawn before maturity", "All of above"], answer: 2},
+      {q: "TDS stands for", options: ["Time Deposit Scheme", "Total Deposit Scheme", "Tax Deducted at Source", "None of above"], answer: 2},
+      {q: "Internet banking refers to", options: ["Operation of account through internet", "Opening of account through ATM", "Both (a) & (b)", "None of above"], answer: 0},
+      {q: "PAN Stands for", options: ["A kind of utensil", "Primary Account Number", "Permanent Account Number", "None of above"], answer: 2},
+      {q: "Which is prohibited for writing on currency notes?", options: ["Political message", "Religious message", "Personal message", "All of above"], answer: 3},
+      {q: "The Word Bank has been derived from a Latin word which means", options: ["A bench for the keeping, lending and exchanging etc. of money.", "An institution for meeting people", "Place, where persons can relax", "An institution for coordinating people"], answer: 0},
+      {q: "RTGS stands for", options: ["Real Time Gross Settlement", "Real Turn Gross Settlement", "Real Technique Gross Settlement", "Real Towards Gross Settlement"], answer: 0},
+      {q: "Expansion of NEFT", options: ["Neutral Electronic Fund Transfer", "National Electronic Fund Transfer", "Nominal Electronic Fund Transfer", "Natural Electronic bill payment"], answer: 1},
+      {q: "Name the person to whom the amount of the cheque is payable?", options: ["Drawer", "Payee", "Drawee", "Acceptor"], answer: 2},
+      {q: "A Cheque is always payable on", options: ["Demand", "A specified future date", "The last day of the grace", "The will of the paying banker"], answer: 0},
+      {q: "________ is a technology that allows you to access your bank account from a mobile device.", options: ["By increasing paperwork and manual processes", "By reducing the need for customer support", "By limiting accessibility to banking services", "By decreasing transaction speed"], answer: 1},
+      {q: "MICR refers to", options: ["Magnetic Ink Character Recognition", "Magnetic Ink Company Recognition", "Magnetic Ink Cross Recognition", "Magnetic Ink Community Recognition"], answer: 0},
+      {q: "A digital signature is", options: ["Bit string giving identity of a correspondent", "Unique identification of a sender", "An authentication of an electronic record by tying it uniquely to a key only a sender knows", "An encrypted signature of a sender"], answer: 2},
+    ];
+
+    const form = document.getElementById('quizForm');
+    questions.forEach((q, index) => {
+      const div = document.createElement('div');
+      div.classList.add('question');
+      div.innerHTML = `<h4>${index + 1}. ${q.q}</h4>` +
+        q.options.map((opt, i) => `
+          <label>
+            <input type="radio" name="q${index}" value="${i}"> ${opt}
+          </label><br>`
+        ).join('');
+      form.appendChild(div);
+    });
+
+    function submitQuiz() {
+      let score = 0;
+      questions.forEach((q, index) => {
+        const selected = document.querySelector(`input[name='q${index}']:checked`);
+        if (selected && parseInt(selected.value) === q.answer) {
+          score++;
+        }
+      });
+      document.getElementById('result').textContent = `Your score is ${score} out of ${questions.length}`;
+    }
+  </script>
+</body>
+</html>
